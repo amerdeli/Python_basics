@@ -2,13 +2,31 @@ def calculator():
 
     math_operators_list = ['+', '-', '*', '/', '%']
 
-    x = float(input("Enter your first number :"))
-    y = float(input("Enter your second number :"))
-    math_operator = input("Enter mathematical operators :")
-
-    while math_operator not in math_operators_list:
-        print("Invalid mathematical operator!")
-        math_operator = input("Enter mathematical operators :")
+    while True:
+        try:
+            x = float(input("Enter your first number :"))
+        except ValueError:
+            print("Incorrect input! Input needs to be a number.")
+        else:
+            break
+            
+    while True:
+        try:
+            y = float(input("Enter your second number :"))
+        except ValueError:
+            print("Incorrect input! Input needs to be a number.")
+        else:
+            break
+    
+    while True:
+        try:
+            math_operator = input("Enter mathematical operators :")
+            if math_operator not in math_operators_list:
+                raise Exception("Invalid mathematical operator!")
+        except Exception as e:
+            print(e)
+        else:
+            break
 
     if math_operator == '+':
        result = x + y
