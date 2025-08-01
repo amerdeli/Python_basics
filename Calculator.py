@@ -24,6 +24,8 @@ def calculator():
             math_operator = input("Enter mathematical operators :")
             if math_operator not in math_operators_list:
                 raise Exception("Invalid mathematical operator!")
+            if math_operator == '/' and y == 0:
+                raise Exception("Division by zero not allowed!")
         except Exception as e:
             print(e)
         else:
