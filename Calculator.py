@@ -1,4 +1,5 @@
 def calculator():
+    # basic calculator function
 
     math_operators_list = ['+', '-', '*', '/', '%']
 
