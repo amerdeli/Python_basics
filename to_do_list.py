@@ -2,9 +2,9 @@ def to_do_list():
 # function handles a to-do list (add/remove task, check list etc.)
 
     to_do_list = []
-
+    print("================ TO DO LIST ==================") 
     while True:
-        print("=== TO DO LIST ===")
+        print("Select menu:")
         print("1. Add a new task to your list\n"
               "2. Remove a task from your list\n"
               "3. Check open tasks\n"
@@ -22,10 +22,12 @@ def to_do_list():
                 print(e)
             else:
                 break
-    
+        print("==============================================")        
         if selected_option == 1:
             new_task = input("Enter a new task:")
             to_do_list.append(new_task)
+            print("New task has been added!")
+            print("==============================================")   
         elif selected_option == 2:
             while True:
                 try:
@@ -38,11 +40,17 @@ def to_do_list():
                     print(e)
                 else:
                     break
-            to_do_list.pop(task_to_remove - 1)        
+            to_do_list.pop(task_to_remove - 1)  
+            print("Task has been removed!")
+            print("==============================================")          
         elif selected_option == 3:
-            print("Your open tasks:")
-            for task_index, task in enumerate(to_do_list, start=1):
-                print(f"{task_index}. {task}")
+            if not to_do_list:
+                print("No open tasks!")
+            else:
+                print("Your open tasks:")
+                for task_index, task in enumerate(to_do_list, start=1):
+                    print(f"{task_index}. {task}")
+            print("==============================================")  
         elif selected_option == 4:
             break
 
