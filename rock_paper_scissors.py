@@ -6,7 +6,7 @@ def rock_paper_scissors():
     print("Lets play rock/paper/scisssors game! Do you want to play best of 3 or best of 5 game?")
     while True:
         try:
-            number_of_games = int(input("Enter your choice (3/5)):"))
+            number_of_games = int(input("Enter your choice (3/5):"))
             if number_of_games not in [3,5]:
                 raise Exception("Invalid input! Input must be 3 or 5!")
         except ValueError:
@@ -57,7 +57,7 @@ def rock_paper_scissors():
             if computers_choice == "paper":
                 winner = "Player"
                 player_wins += 1
-            elif computers_choice == "scissors":
+            elif computers_choice == "rock":
                 winner = "Computer"
                 computer_wins += 1
             else:
@@ -67,16 +67,27 @@ def rock_paper_scissors():
         if winner == "Player" or winner == "Computer":
             print(f"{winner} won!")
             print(f"-------------------------------------------")
-            game_cnt = +1
+            game_cnt += 1
         else:
             print(f"{winner} won! Let us repeat this game!")
         
         if number_of_games == 3:     
-            if player_wins != computer_wins and player_wins >= 2:
+            if player_wins >= 2:
                 print("Congratulations! You won the series!")
                 print(f"End result: Player {player_wins} - {computer_wins} Computer ")
                 break
-            elif player_wins != computer_wins and computer_wins >= 2:
+            elif computer_wins >= 2:
+                print("Sorry! Computer won the series!")
+                print(f"End result: Player {player_wins} - {computer_wins} Computer ")
+                break
+            else:
+                print(f"Current result: Player {player_wins} - {computer_wins} Computer")
+        elif number_of_games == 5:     
+            if player_wins >= 3:
+                print("Congratulations! You won the series!")
+                print(f"End result: Player {player_wins} - {computer_wins} Computer ")
+                break
+            elif computer_wins >= 3:
                 print("Sorry! Computer won the series!")
                 print(f"End result: Player {player_wins} - {computer_wins} Computer ")
                 break
@@ -84,9 +95,5 @@ def rock_paper_scissors():
                 print(f"Current result: Player {player_wins} - {computer_wins} Computer")
     
     
-    
-    
-
-
-
+# Start the game
 rock_paper_scissors()
